@@ -2,7 +2,11 @@
   "name": "chatwidget",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "nx serve chatwidget",
+    "ssl": "nx serve chatwidget --ssl",
+    "build": "nx build chatwidget"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~15.0.0",
@@ -13,13 +17,19 @@
     "@angular/platform-browser": "~15.0.0",
     "@angular/platform-browser-dynamic": "~15.0.0",
     "@angular/router": "~15.0.0",
+    "@auth0/auth0-angular": "^2.2.2",
+    "@ngx-translate/core": "^14.0.0",
     "@nrwl/angular": "15.4.8",
+    "ajv": "^8.12.0",
+    "ngx-popperjs": "^15.2.4",
     "rxjs": "~7.5.0",
+    "stream-chat": "^8.14.4",
+    "stream-chat-angular": "^4.52.2",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~15.0.0",
+    "@angular-devkit/build-angular": "^15.2.10",
     "@angular-eslint/eslint-plugin": "~15.0.0",
     "@angular-eslint/eslint-plugin-template": "~15.0.0",
     "@angular-eslint/template-parser": "~15.0.0",
@@ -30,7 +40,7 @@
     "@nrwl/eslint-plugin-nx": "15.4.8",
     "@nrwl/jest": "15.4.8",
     "@nrwl/linter": "15.4.8",
-    "@nrwl/nx-cloud": "latest",
+    "@nrwl/nx-cloud": "^16.5.2",
     "@nrwl/workspace": "15.4.8",
     "@types/jest": "28.1.1",
     "@types/node": "16.11.7",

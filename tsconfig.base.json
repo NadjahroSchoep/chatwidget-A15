@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@chatwidget/api": ["libs/api/src/index.ts"],
+      "@chatwidget/auth": ["libs/auth/src/index.ts"],
+      "@chatwidget/chat": ["libs/chat/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
