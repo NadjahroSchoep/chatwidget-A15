@@ -1,21 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '@chatwidget/api';
 import { ChannelService, ChatClientService, StreamChatModule, StreamI18nService } from 'stream-chat-angular';
-import { AuthHttpInterceptor, AuthService } from '@auth0/auth0-angular';
+import { AuthService } from '@auth0/auth0-angular';
 import { CommonModule } from '@angular/common';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @Component({
   selector: 'chatwidget-chat',
   standalone: true,
   imports: [CommonModule, StreamChatModule],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthHttpInterceptor,
-      multi: true,
-    },
-  ],
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss']
 })

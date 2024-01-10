@@ -5,7 +5,8 @@
   "scripts": {
     "start": "nx serve chatwidget",
     "ssl": "nx serve chatwidget --ssl",
-    "build": "nx build chatwidget"
+    "build": "nx build chatwidget",
+    "build_webpack": "webpack --config webpack.config.js"
   },
   "private": true,
   "dependencies": {
@@ -57,6 +58,8 @@
     "prettier": "^2.6.2",
     "ts-jest": "28.0.5",
     "ts-node": "10.9.1",
-    "typescript": "~4.8.2"
+    "typescript": "~4.8.2",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
   }
 }

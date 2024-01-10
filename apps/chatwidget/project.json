@@ -54,7 +54,7 @@
       "sslKey": "cert.pem",
       "sslCert": "key.pem",
       "options": {
-        
+        "proxyConfig": "apps/chatwidget/proxy.conf.json"
       },
       "configurations": {
         "production": {
