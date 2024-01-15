@@ -14,8 +14,8 @@ export class ApiService {
     public auth: AuthService,
     ) { } 
 
-  getToken(username: string): Observable<any>{
-    return this.http.get(`${this.baseUrl}/api/stream/token?username=${username}`,{responseType: 'text'})
+  getToken(): Observable<any>{
+    return this.http.get(`${this.baseUrl}/api/stream/token`,{responseType: 'json'})
     // return this.http.get<string>(`${this.baseUrl}/api/stream/token?username=${username}`,{responseType: 'text'}) 
     // .subscribe(
     //   (response) => {

@@ -35,6 +35,7 @@ const routes: Routes = [
       httpInterceptor: {
         allowedList: [environment.api_url+'*'],
       },
+      // useRefreshTokens: true,
     }),
     TranslateModule.forRoot(),
     StreamAutocompleteTextareaModule,
