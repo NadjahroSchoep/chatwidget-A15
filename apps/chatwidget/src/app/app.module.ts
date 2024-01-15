@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { AuthComponent, CallbackComponent } from '@chatwidget/auth';
 
 import { RouterModule, Routes } from '@angular/router';
-import { AuthHttpInterceptor, AuthModule } from '@auth0/auth0-angular';
+import { AuthGuard, AuthHttpInterceptor, AuthModule } from '@auth0/auth0-angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { StreamChatModule, StreamAutocompleteTextareaModule } from 'stream-chat-angular';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -17,7 +17,8 @@ const routes: Routes = [
   { path: '', component: AuthComponent },
   { path: 'callback', component: CallbackComponent },
   { path: 'chat', loadComponent: () =>
-  import('@chatwidget/chat').then((m) => m.ChatComponent), },
+  import('@chatwidget/chat').then((m) => m.ChatComponent), 
+  canActivate: [AuthGuard]},
 ];
 
 @NgModule({
