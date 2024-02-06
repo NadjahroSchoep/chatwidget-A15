@@ -3,13 +3,13 @@ import { ApiService } from '@chatwidget/api';
 import { ChannelService, ChatClientService, StreamChatModule, StreamI18nService } from 'stream-chat-angular';
 import { AuthService } from '@auth0/auth0-angular';
 import { CommonModule } from '@angular/common';
-import { jwtDecode} from 'jwt-decode';
+import { json } from 'stream/consumers';
 
 @Component({
   selector: 'chatwidget-chat',
   standalone: true,
   imports: [CommonModule, StreamChatModule],
-  templateUrl: './chat.component.html',
+  template: './chat.component.html',
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent implements OnInit {
@@ -22,25 +22,8 @@ export class ChatComponent implements OnInit {
     private streamI18nService: StreamI18nService,
   ) {}
 
-  // private handleMessage(event: MessageEvent): void {
-  //   if (event.data && event.data.type === 'SET_USER') {
-  //     const { user, idToken } = event.data;
-  //     // Use user and idToken in the child Angular component
-  //     console.log('Received user information:', user);
-  
-  //     // Do something with the user information, update UI, etc.
-  //   }
-  // }
-
   ngOnInit() {
     const apiKey = '63bygjq8kbu4';
-
-    // window.addEventListener('message', this.handleMessage.bind(this));
-
-    // const idToken = 'auth0';
-
-    // // Decode the JWT to get user information
-    // const decodedToken: any = jwtDecode(idToken);
 
     // // Now you can use decodedToken to access user details
     // console.log('Decoded JWT:', decodedToken);
@@ -57,13 +40,15 @@ export class ChatComponent implements OnInit {
       let username = "";
     
       this.api.getToken().subscribe(response => {
-        console.log(response);
+      // console.log(response);
       const token = response.token;
       username = response.username;
-      console.log('Token: ', token);
+      console.log(username);
+      // console.log('Token: ', token);
+      // this.api.login();
 
       // this.api.addUser(name);
-      // this.api.addUser(name + '2');
+      // this.api.addUser('test3');
 
       // Initialize chat service and set translation
       this.chatService.init(apiKey, username, token);

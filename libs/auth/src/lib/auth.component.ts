@@ -3,6 +3,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
 import { AuthConfigService, AuthHttpInterceptor, AuthModule, AuthService } from '@auth0/auth0-angular';
 import { getAuth0Config } from './auth.config';
+import { ApiService } from '@chatwidget/api';
 
 @Component({
   selector: 'chatwidget-auth',
@@ -30,6 +31,7 @@ export class AuthComponent {
   
   constructor(
     public auth: AuthService,
+    private api: ApiService,
     @Inject(DOCUMENT) private doc: Document
     ) {}
 

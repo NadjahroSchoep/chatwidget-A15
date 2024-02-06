@@ -9,7 +9,7 @@
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/chatwidget",
+        "outputPath": "dist/chatwidget",
         "index": "apps/chatwidget/src/index.html",
         "main": "apps/chatwidget/src/main.ts",
         "polyfills": ["zone.js"],
@@ -51,8 +51,7 @@
     },
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
-      "sslKey": "cert.pem",
-      "sslCert": "key.pem",
+
       "options": {
         
       },
