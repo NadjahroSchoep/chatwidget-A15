@@ -3,13 +3,13 @@ import { ApiService } from '@chatwidget/api';
 import { ChannelService, ChatClientService, StreamChatModule, StreamI18nService } from 'stream-chat-angular';
 import { AuthService } from '@auth0/auth0-angular';
 import { CommonModule } from '@angular/common';
-import { json } from 'stream/consumers';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'chatwidget-chat',
   standalone: true,
   imports: [CommonModule, StreamChatModule],
-  template: './chat.component.html',
+  templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent implements OnInit {
@@ -17,35 +17,35 @@ export class ChatComponent implements OnInit {
   constructor(
     private api: ApiService,
     private auth: AuthService,
+    private router: Router,
     private chatService: ChatClientService,
     private channelService: ChannelService,
     private streamI18nService: StreamI18nService,
   ) {}
 
+  addChannel() {
+    this.router.navigateByUrl('/add-channel');
+  }
+
   ngOnInit() {
     const apiKey = '63bygjq8kbu4';
 
-    // // Now you can use decodedToken to access user details
-    // console.log('Decoded JWT:', decodedToken);
-
-    // // Access specific user details
-    // const username = decodedToken.username;
-    // const email = decodedToken.email;
-
-    // console.log('Username:', username);
-    // console.log('Email:', email);
+    this.api.getUsers({ascending: true});
 
     if (this.auth.isAuthenticated$) {
 
       let username = "";
     
+      this.api.getUsers({ascending: false}).subscribe(response => {
+        console.log(response);
+      });
+
       this.api.getToken().subscribe(response => {
       // console.log(response);
       const token = response.token;
       username = response.username;
       console.log(username);
       // console.log('Token: ', token);
-      // this.api.login();
 
       // this.api.addUser(name);
       // this.api.addUser('test3');
@@ -81,19 +81,6 @@ export class ChatComponent implements OnInit {
     //       console.log(id);
     //   });
     // });
-
-          // var testt = '';
-          // this.api.getChannel('messaging', 'testtt', name, name+'2')
-          // .subscribe(response => {
-          //   console.log(response);
-          //   testt = response.channel.id;
-          //   console.log(testt);
-
-          //   this.channelService.init({
-          //   type: 'messaging',
-          //   id: { $eq: testt },
-          //   });
-          // });
     }
   }
 }

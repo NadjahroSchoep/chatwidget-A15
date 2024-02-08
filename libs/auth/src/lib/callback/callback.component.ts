@@ -14,11 +14,11 @@ export class CallbackComponent implements OnInit {
     console.log('Called back');
     this.auth
       .handleRedirectCallback()
-      .subscribe(
+      // .subscribe(
       //   () => {
-      //   // Redirect to the home page or any desired route
+      // //   // Redirect to the home page or any desired route
       //   window.location.href = '/';
       // }
-      );
+      // );
   }
 }

@@ -1,0 +1,7 @@
+<div>
+    <input type="text" placeholder="Enter channel name" [(ngModel)]="channelName" />
+  
+    <input type="text" placeholder="Enter value" [(ngModel)]="inputValue" (change)="queryUsers(inputValue)" />
+  
+    <button (click)="addChannel()">Add Channel</button>
+</div>

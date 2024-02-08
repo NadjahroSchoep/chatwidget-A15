@@ -15,7 +15,7 @@ export class ApiService {
     ) { } 
 
   getToken(): Observable<any>{
-    return this.http.get(`${this.baseUrl}/api/stream/token`,{responseType: 'json'})
+    return this.http.get(`${this.baseUrl}/stream/token`,{responseType: 'json'})
     // return this.http.get<string>(`${this.baseUrl}/api/stream/token?username=${username}`,{responseType: 'text'}) 
     // .subscribe(
     //   (response) => {
@@ -28,7 +28,7 @@ export class ApiService {
   }
 
   getChannel(channelType: string, channelId: string, user1: string, user2: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/api/stream/channel?channelType=${channelType}&channelId=${channelId}&user1=${user1}&user2=${user2}`)
+    return this.http.get(`${this.baseUrl}/stream/channel?channelType=${channelType}&channelId=${channelId}&user1=${user1}&user2=${user2}`)
     // .subscribe(
     //   (response) => {
     //     console.log(response);
@@ -39,21 +39,26 @@ export class ApiService {
     // );
   }
 
+  getUsers(options: { username?: string, ascending?: boolean }): Observable<any> {
+    if (!options.username) {
+      return this.http.get(`${this.baseUrl}/stream/users?ascending=${options.ascending}`)
+    }
+    return this.http.get(`${this.baseUrl}/stream/users?username=${options.username}&ascending=${options.ascending}`)
+  }
+
   getUserChannels(username: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/api/stream/channels?user=${username}`)
+    return this.http.get(`${this.baseUrl}/stream/channels?user=${username}`)
   }
   
   addUser(username: string) {
     const headers = { 'Content-Type': 'application/json' };
   
-    this.http.post<any>(`${this.baseUrl}/api/stream/user?username=${username}`, { headers: headers })
+    this.http.post<any>(`${this.baseUrl}/stream/user?username=${username}`, { headers: headers })
       .subscribe(
         (response) => {
-          // Handle the response here
           console.log(response);
         },
         (error) => {
-          // Handle errors here
           console.error('Error:', error);
         }
       );
@@ -70,7 +75,7 @@ export class ApiService {
     //     channelType: channelType,
     // };
 
-    return this.http.get<any>(`${this.baseUrl}/api/stream/message?channelType=${channelType}&channelId=${channelId}&user=${user}&message=${message}`, {headers})
+    return this.http.get<any>(`${this.baseUrl}/stream/message?channelType=${channelType}&channelId=${channelId}&user=${user}&message=${message}`, {headers})
     //  .subscribe(
     //   (response) => {
     //     // Handle the response here

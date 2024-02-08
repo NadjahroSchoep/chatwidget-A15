@@ -19,6 +19,9 @@ const routes: Routes = [
   { path: 'chat', loadComponent: () =>
   import('@chatwidget/chat').then((m) => m.ChatComponent), 
   canActivate: [AuthGuard]},
+  { path: 'add-channel', loadComponent: () =>
+  import('@chatwidget/chat').then((m) => m.AddChannelComponent), 
+  canActivate: [AuthGuard]},
 ];
 
 @NgModule({
