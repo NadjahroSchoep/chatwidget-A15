@@ -18,9 +18,26 @@ body {
 #chat {
   display: flex;
   height: 100%;
+  
+  #add-button {
+    width: auto;
+    height: 40px;
+    bottom: 0px;
+    margin: 20px;
+    color: white;
+    background-color: #0050EF;
+    border: none;
+    border-radius: 20px;
+  }
+
+  #channel-list-container {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+  }
 
   stream-channel-list {
-    width: 30%;
+    width: 100%;
   }
 
   stream-channel {

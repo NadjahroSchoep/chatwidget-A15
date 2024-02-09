@@ -1,0 +1,48 @@
+#add-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    width: 80%;
+    margin: auto;
+
+    #channel-name {
+        border-radius: 20px;
+        height: 40px;
+        width: 60%;
+        margin: 20px auto;
+    }
+
+    #user-div{
+        border: #0050EF 1px solid;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        border-radius: 22px;
+        height: 100%;
+        width: 60%;
+        margin: auto;
+
+        #user-name {
+            border-radius: 20px;
+            height: 40px;
+            width: 99%;
+            margin: 0px auto;
+            border-top: #0050EF 1px solid;
+        }
+    }
+
+    #channel-add {
+        width: auto;
+        height: 60px;
+        width: fit-content + 30px;
+        color: white;
+        background-color: #0050EF;
+        border: none;
+        border-radius: 30px;
+        margin: 30px auto;
+    }
+}
+

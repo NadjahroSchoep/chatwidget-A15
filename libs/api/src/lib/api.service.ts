@@ -27,22 +27,20 @@ export class ApiService {
     // );
   }
 
-  getChannel(channelType: string, channelId: string, user1: string, user2: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/stream/channel?channelType=${channelType}&channelId=${channelId}&user1=${user1}&user2=${user2}`)
-    // .subscribe(
-    //   (response) => {
-    //     console.log(response);
-    //   },
-    //   (error) => {
-    //     console.error('Error:', error);
-    //   }
-    // );
+  getChannel(channelType: string, channelId: string, user1: string, users: string[]): Observable<any> {
+    const usersQueryParam = users.map(user => `&users=${user}`).join('');
+    return this.http.get(`${this.baseUrl}/stream/channel?channelType=${channelType}&channelId=${channelId}&user1=${user1}${usersQueryParam}`);
   }
 
   getUsers(options: { username?: string, ascending?: boolean }): Observable<any> {
-    if (!options.username) {
+    if (!options.username && !options.ascending) {
+      return this.http.get(`${this.baseUrl}/stream/users`)
+    } else if(!options.username) {
       return this.http.get(`${this.baseUrl}/stream/users?ascending=${options.ascending}`)
+    } else if(!options.ascending) {
+      return this.http.get(`${this.baseUrl}/stream/users?username=${options.username}`)
     }
+
     return this.http.get(`${this.baseUrl}/stream/users?username=${options.username}&ascending=${options.ascending}`)
   }
 

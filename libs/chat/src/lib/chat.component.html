@@ -1,7 +1,10 @@
 <div id="chat">
+  <div id="channel-list-container">
     <stream-channel-list>
-      <!-- <button (click)="addChannel()">Add channel</button> -->
     </stream-channel-list>
+      <button id="add-button" (click)="addChannel()">Add channel</button>
+  </div>
+    
     <stream-channel>
     <stream-channel-header></stream-channel-header>
     <stream-message-list></stream-message-list>

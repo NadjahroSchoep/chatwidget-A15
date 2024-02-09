@@ -30,16 +30,10 @@ export class ChatComponent implements OnInit {
   ngOnInit() {
     const apiKey = '63bygjq8kbu4';
 
-    this.api.getUsers({ascending: true});
-
     if (this.auth.isAuthenticated$) {
 
       let username = "";
     
-      this.api.getUsers({ascending: false}).subscribe(response => {
-        console.log(response);
-      });
-
       this.api.getToken().subscribe(response => {
       // console.log(response);
       const token = response.token;

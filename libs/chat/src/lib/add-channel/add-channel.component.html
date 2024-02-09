@@ -1,7 +1,13 @@
-<div>
-    <input type="text" placeholder="Enter channel name" [(ngModel)]="channelName" />
+<div id="add-div">
+    <input id="channel-name" type="text" placeholder="Enter channel name" [(ngModel)]="channelName" />
   
-    <input type="text" placeholder="Enter value" [(ngModel)]="inputValue" (change)="queryUsers(inputValue)" />
+    <div id="user-div">
+        <input id="user-name" type="text" placeholder="Search users" [(ngModel)]="inputname" (input)="queryUsers(inputname)" />
+        <div id="user-list" *ngFor="let user of users">
+        <label id="user">{{ user }}</label>
+        <input type="checkbox" [value]="user" (change)="addUser(user)" />
+        </div>
+    </div>
   
-    <button (click)="addChannel()">Add Channel</button>
+    <button id="channel-add" (click)="addChannel()">Add Channel</button>
 </div>
