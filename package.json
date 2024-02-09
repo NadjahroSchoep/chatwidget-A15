@@ -27,6 +27,7 @@
     "jwt-decode": "^4.0.0",
     "ngx-popperjs": "^15.2.4",
     "rxjs": "~7.5.0",
+    "simplebar-angular": "^3.2.4",
     "stream-chat": "^8.14.4",
     "stream-chat-angular": "^4.52.2",
     "tslib": "^2.3.0",

@@ -4,12 +4,13 @@ import { ChannelService, ChatClientService, StreamChatModule, StreamI18nService 
 import { ApiService } from '@chatwidget/api';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '@auth0/auth0-angular';
-
+import { Location } from '@angular/common';
+import { SimplebarAngularModule } from 'simplebar-angular';
 
 @Component({
   selector: 'chatwidget-add-channel',
   standalone: true,
-  imports: [CommonModule, StreamChatModule, FormsModule],
+  imports: [CommonModule, StreamChatModule, FormsModule, SimplebarAngularModule],
   templateUrl: './add-channel.component.html',
   styleUrls: ['./add-channel.component.scss'],
 })
@@ -19,10 +20,12 @@ export class AddChannelComponent implements OnInit{
   inputname = '';
   users: string[] = [];
   selectedUsers: string[] = [];
+  options = {autoHide: false, scrollbarMinSize: 100};
 
   constructor(
     private api: ApiService,
     private auth: AuthService,
+    private location: Location,
     private chatService: ChatClientService,
     private channelService: ChannelService,
     private streamI18nService: StreamI18nService,
@@ -67,6 +70,11 @@ export class AddChannelComponent implements OnInit{
         });
       });
     }
-   
   }
+
+  return() {
+    this.location.back();
+  }
+
+  
 }

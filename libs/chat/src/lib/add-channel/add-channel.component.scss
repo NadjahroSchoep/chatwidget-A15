@@ -12,37 +12,98 @@
         height: 40px;
         width: 60%;
         margin: 20px auto;
+        padding-left: 1%;
     }
 
     #user-div{
         border: #0050EF 1px solid;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
         border-radius: 22px;
         height: 100%;
         width: 60%;
         margin: auto;
+        overflow: hidden;
 
-        #user-name {
+        #user-search {
             border-radius: 20px;
             height: 40px;
             width: 99%;
-            margin: 0px auto;
+            margin: 1px auto;
+            padding-left: 1%;
             border-top: #0050EF 1px solid;
+            background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath d="M21.71 20.29l-5.91-5.91A7.48 7.48 0 0018 9c0-4.41-3.59-8-8-8S2 4.59 2 9s3.59 8 8 8a7.48 7.48 0 005.38-2.22l5.91 5.91a1 1 0 001.42 0 1 1 0 000-1.42zM4 9a5 5 0 015-5 5 5 0 015 5 5 5 0 01-5 5 5 5 0 01-5-5z" fill="%23333"%3E%3C/path%3E%3C/svg%3E');
+            background-position: right 10px center;
+            background-repeat: no-repeat;
+            background-size: 20px;
+        }
+
+        .user-list{
+            border: #0050EF 1px solid;
+            border-radius: 22px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            overflow-y: auto;
+            overflow-x: hidden;
+            margin: auto;
+            
+            #user-item {
+                display: flex;
+                align-items: center;
+                margin: 5px auto;
+                border-radius: 22px;
+                user-select: none;
+        
+                #profile-pic {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 40px;
+                    width: 40px;
+                    border-radius: 50%;
+                    color: white;
+                    background-color: #0050EF;
+                    margin-right: 10px;
+                }
+
+                label {
+                    margin-right: 10px;
+                }
+            }
         }
     }
 
     #channel-add {
         width: auto;
-        height: 60px;
-        width: fit-content + 30px;
+        height: 50px;
+        width: fit-content;
+        padding: 20px;
         color: white;
         background-color: #0050EF;
         border: none;
         border-radius: 30px;
-        margin: 30px auto;
+        margin: 10px auto;
     }
 }
 
+#back-button {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    border: none;
+    background: none;
+    color: #0050EF;
+    font-size: 4em;
+    cursor: pointer;
+}
+
+::ng-deep .simplebar-track.vertical {
+    height: 100%;
+}

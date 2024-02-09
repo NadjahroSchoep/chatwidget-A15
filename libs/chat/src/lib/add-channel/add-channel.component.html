@@ -2,12 +2,22 @@
     <input id="channel-name" type="text" placeholder="Enter channel name" [(ngModel)]="channelName" />
   
     <div id="user-div">
-        <input id="user-name" type="text" placeholder="Search users" [(ngModel)]="inputname" (input)="queryUsers(inputname)" />
-        <div id="user-list" *ngFor="let user of users">
-        <label id="user">{{ user }}</label>
-        <input type="checkbox" [value]="user" (change)="addUser(user)" />
-        </div>
+        <input id="user-search" type="search" placeholder="Search users" [(ngModel)]="inputname" (input)="queryUsers(inputname)" />
+
+        <ngx-simplebar class="user-list">
+            <div class="user-list">
+                <div id="user-item" *ngFor="let user of users; let i = index" 
+                        (click)="addUser(user)"
+                        [ngStyle]="{'background-color': selectedUsers.includes(user) ? 'lightgrey' : 'white'}">
+                    <div id="profile-pic">{{ user[0] }}</div>
+                    <label for="user{{i}}">{{ user }}</label>
+                </div>
+            </div>
+        </ngx-simplebar>
+        
     </div>
   
     <button id="channel-add" (click)="addChannel()">Add Channel</button>
 </div>
+
+<button id="back-button" (click)="return()">&#8592;</button>
