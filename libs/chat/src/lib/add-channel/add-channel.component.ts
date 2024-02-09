@@ -62,7 +62,7 @@ export class AddChannelComponent implements OnInit{
       username = response.username;
       console.log(username);
       
-        this.api.getChannel('messaging', this.channelName, username, this.selectedUsers).subscribe(response => {
+        this.api.createChannel(this.channelName, this.selectedUsers).subscribe(response => {
           console.log(response);
         });
       });

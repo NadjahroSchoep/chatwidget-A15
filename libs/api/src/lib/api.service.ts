@@ -47,6 +47,13 @@ export class ApiService {
   getUserChannels(username: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/stream/channels?user=${username}`)
   }
+
+  createChannel(channelId: string, users: string[]): Observable<any>  {
+    const headers = { 'Content-Type': 'application/json' };
+    const body = { channelId: channelId, users: users };
+  
+    return this.http.post<any>(`${this.baseUrl}/stream/create-channel`, body, { headers: headers });
+  }
   
   addUser(username: string) {
     const headers = { 'Content-Type': 'application/json' };
