@@ -26,6 +26,7 @@ import { ApiService } from '@chatwidget/api';
     // },
   // ],
   templateUrl: './auth.component.html',
+  styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent {
   
@@ -35,7 +36,7 @@ export class AuthComponent {
     @Inject(DOCUMENT) private doc: Document
     ) {}
 
-    isAuthenticated$ = this.auth.isAuthenticated$
+  isAuthenticated$ = this.auth.isAuthenticated$
 
   login(): void {
     this.auth.loginWithRedirect({

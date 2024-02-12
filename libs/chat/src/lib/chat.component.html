@@ -1,9 +1,13 @@
 <div id="chat">
   <div id="channel-list-container">
-    <stream-channel-list>
-    </stream-channel-list>
-      <button id="add-button" (click)="addChannel()">Add channel</button>
+    
+    <ngx-simplebar id="channel-list-bar">
+      <stream-channel-list>
+      </stream-channel-list>
+    </ngx-simplebar>
+    <button id="add-button" (click)="addChannel()">Add channel</button>
   </div>
+  
     
     <stream-channel>
     <stream-channel-header></stream-channel-header>

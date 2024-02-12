@@ -4,11 +4,12 @@ import { ChannelService, ChatClientService, StreamChatModule, StreamI18nService 
 import { AuthService } from '@auth0/auth0-angular';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { SimplebarAngularModule } from 'simplebar-angular';
 
 @Component({
   selector: 'chatwidget-chat',
   standalone: true,
-  imports: [CommonModule, StreamChatModule],
+  imports: [CommonModule, StreamChatModule, SimplebarAngularModule, ],
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss']
 })
@@ -41,9 +42,6 @@ export class ChatComponent implements OnInit {
       console.log(username);
       // console.log('Token: ', token);
 
-      // this.api.addUser(name);
-      // this.api.addUser('test3');
-
       // Initialize chat service and set translation
       this.chatService.init(apiKey, username, token);
       this.streamI18nService.setTranslation();
@@ -60,21 +58,6 @@ export class ChatComponent implements OnInit {
         members: {$in: [username]} 
       });
     });
-  
-    // this.api.getUserChannels(username).subscribe(response => {
-    //   console.log(response);
-
-    //   response.channels.forEach((channel: any) => {
-    //       const id: string = channel.channel.id;
-
-    //       this.channelService.init({
-    //         type: 'messaging',
-    //         id: { $eq: id },
-    //       })
-
-    //       console.log(id);
-    //   });
-    // });
     }
   }
 }

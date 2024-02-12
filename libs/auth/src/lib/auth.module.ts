@@ -28,12 +28,6 @@ import { environment } from '../environments/environment';
       useClass: AuthHttpInterceptor,
       multi: true,
     },
-    // Provide AuthConfigService using a factory function
-    // {
-    //   provide: AuthConfigService,
-    //   useFactory: () => getAuth0Config(),
-    // },
-    // Auth0Client
   ],
   declarations: [AuthComponent, CallbackComponent],
 })
