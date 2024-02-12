@@ -5,22 +5,10 @@ import { AuthComponent } from './auth.component';
 import { AuthHttpInterceptor, AuthModule } from '@auth0/auth0-angular';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { environment } from '../environments/environment';
-
 @NgModule({
   imports: [
     CommonModule,
-    AuthModule.forRoot({
-      domain: environment.domain,
-      clientId: environment.clientId,
-      authorizationParams: {
-        redirect_uri: environment.callback_url,
-        audience: environment.audience
-      },
-      httpInterceptor: {
-        allowedList: [environment.api_url+'*'],
-      },
-    }),
+    AuthModule.forRoot(),
   ],
   providers: [
     {
@@ -29,6 +17,6 @@ import { environment } from '../environments/environment';
       multi: true,
     },
   ],
-  declarations: [AuthComponent, CallbackComponent],
+  declarations: [],
 })
 export class AuthM {}

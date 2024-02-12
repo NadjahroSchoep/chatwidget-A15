@@ -1,30 +1,15 @@
 import { CommonModule, DOCUMENT } from '@angular/common';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
-import { AuthConfigService, AuthHttpInterceptor, AuthModule, AuthService } from '@auth0/auth0-angular';
-import { getAuth0Config } from './auth.config';
+import { AuthModule, AuthService } from '@auth0/auth0-angular';
 import { ApiService } from '@chatwidget/api';
 
 @Component({
   selector: 'chatwidget-auth',
-  // standalone: true,
-  // imports: [
-  //   CommonModule,
-  //   HttpClientModule,
-  //   AuthModule,
-  // ],
-  // providers: [
-  //   {
-  //     provide: HTTP_INTERCEPTORS,
-  //     useClass: AuthHttpInterceptor,
-  //     multi: true,
-  //   },
-    // Provide AuthConfigService using a factory function
-    // {
-    //   provide: AuthConfigService,
-    //   useFactory: () => getAuth0Config(),
-    // },
-  // ],
+  standalone: true,
+  imports: [
+    CommonModule,
+    AuthModule,
+  ],
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss']
 })

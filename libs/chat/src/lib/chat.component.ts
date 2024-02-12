@@ -5,11 +5,12 @@ import { AuthService } from '@auth0/auth0-angular';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { SimplebarAngularModule } from 'simplebar-angular';
+import { AuthComponent } from '@chatwidget/auth';
 
 @Component({
   selector: 'chatwidget-chat',
   standalone: true,
-  imports: [CommonModule, StreamChatModule, SimplebarAngularModule, ],
+  imports: [CommonModule, StreamChatModule, SimplebarAngularModule, AuthComponent ],
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss']
 })

@@ -20,7 +20,7 @@ export class AddChannelComponent implements OnInit{
   inputname = '';
   users: string[] = [];
   selectedUsers: string[] = [];
-  options = {autoHide: false, scrollbarMinSize: 100};
+  username = '';
 
   constructor(
     private api: ApiService,
@@ -32,18 +32,31 @@ export class AddChannelComponent implements OnInit{
   ) {}
 
   ngOnInit() {
+    // Add the current user to the selected users
+    if (this.auth.isAuthenticated$) {
+      this.api.getToken().subscribe(response => {
+        this.username = response.username;
+        this.selectedUsers.push(this.username);
+        });
+    }
+
+    // Get all users and removes the current user from the list
     this.api.getUsers({}).subscribe(response => {
       this.users = response.users.map((user: any) => user.id);
+      this.users = this.users.filter(elem => elem !== this.username);
       console.log(this.users);
     });
+    this.selectedUsers.push
   }
 
+  // Get all users
   queryUsers(username?: string) {
     this.api.getUsers({username: username}).subscribe(response => {
       this.users = response.users.map((user: any) => user.id);
     });
   }
 
+  // Add a user to the selected users, also checks for duplicates
   addUser(username: string) {
     const index = this.selectedUsers.indexOf(username);
     if (index < 0) {
@@ -56,21 +69,17 @@ export class AddChannelComponent implements OnInit{
     console.log(this.selectedUsers);
   }
 
+  // Create a channel using the list of selectd users
   addChannel() {
-    if (this.auth.isAuthenticated$) {
-          let username = "";
-    
-      this.api.getToken().subscribe(response => {
-      // console.log(response);
-      username = response.username;
-      console.log(username);
-      
-        this.api.createChannel(this.channelName, this.selectedUsers).subscribe(response => {
-          console.log(response);
-        });
-      });
-    }
-  }
+    this.api.createChannel(this.channelName, this.selectedUsers).subscribe(
+      response => {
+        // console.log(response);
+        this.return();
+      },
+      error => {
+        console.error(error); // Handle error
+      }
+  )};
 
   return() {
     this.location.back();

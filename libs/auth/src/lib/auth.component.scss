@@ -16,6 +16,7 @@ body {
 }
 
 #loader {
+  margin-top: 20px;
   border: 16px solid #f3f3f3; /* Light grey */
   border-top: 16px solid #3498db; /* Blue */
   border-radius: 50%;
@@ -37,7 +38,9 @@ body {
 button {
   width: fit-content;
   padding: 10px;
-  margin-top: 20px;
+  padding-left: 10vh;
+  padding-right: 10vh;
+  margin: 20px;
   color: white;
   background-color: #0050EF;
   border: none;
