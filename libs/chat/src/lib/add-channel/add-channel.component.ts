@@ -44,7 +44,7 @@ export class AddChannelComponent implements OnInit{
     this.api.getUsers({}).subscribe(response => {
       this.users = response.users.map((user: any) => user.id);
       this.users = this.users.filter(elem => elem !== this.username);
-      console.log(this.users);
+      console.log(response);
     });
     this.selectedUsers.push
   }
