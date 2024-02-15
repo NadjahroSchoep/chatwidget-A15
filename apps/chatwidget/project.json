@@ -20,7 +20,8 @@
         ],
         "styles": [
           "apps/chatwidget/src/styles.scss",
-          "libs/chat/src/lib/chat.component.scss"
+          "libs/chat/src/lib/chat.component.scss",
+          "libs/chat/src/lib/add-channel/add-channel.component.scss"
         ],
         "scripts": []
       },

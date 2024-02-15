@@ -19,7 +19,11 @@
           "apps/chatwidget-simple/src/favicon.ico",
           "apps/chatwidget-simple/src/assets"
         ],
-        "styles": ["apps/chatwidget-simple/src/styles.scss"],
+        "styles": [
+          "apps/chatwidget/src/styles.scss",
+          "libs/chat/src/lib/chat.component.scss",
+          "libs/chat/src/lib/add-channel/add-channel.component.scss"
+        ],
         "scripts": []
       },
       "configurations": {
