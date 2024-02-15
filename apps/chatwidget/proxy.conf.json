@@ -1,7 +1,11 @@
 {
-  "/api": {
-    "target": "http://localhost:7183",
+  "/stream": {
+    "target": "https://localhost:7183",
     "secure": false,
-    "logLevel": "debug"
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "headers": {
+      "host": "localhost:4200"
+    }
   }
 }

@@ -7,7 +7,6 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/chatwidget",
         "index": "apps/chatwidget/src/index.html",
@@ -54,7 +53,9 @@
     },
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
-      "options": {},
+      "options": {
+        "proxyConfig": "apps/chatwidget/proxy.conf.json"
+      },
       "configurations": {
         "production": {
           "browserTarget": "chatwidget:build:production"

@@ -3,3 +3,11 @@
 // "proxyConfig": "apps/chatwidget/proxy.conf.json"
 // "sslKey": "localhost-key.pem",
 // "sslCert": "localhost.pem",
+
+// {
+//     "/api": {
+//       "target": "http://localhost:7183",
+//       "secure": false,
+//       "logLevel": "debug"
+//     }
+//   }

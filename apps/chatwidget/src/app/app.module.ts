@@ -13,7 +13,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { environment } from '../environments/environment';
 
-const routes: Routes = [
+const routesDomain1: Routes = [
   { path: '', component: AuthComponent },
   { path: 'callback', component: CallbackComponent },
   { path: 'chat', loadComponent: () =>
@@ -22,18 +22,40 @@ const routes: Routes = [
   { path: 'add-channel', loadComponent: () =>
   import('@chatwidget/chat').then((m) => m.AddChannelComponent), 
   canActivate: [AuthGuard]},
+  { path: 'consult', loadComponent: () =>
+  import('@chatwidget/consult').then((m) => m.ConsultComponent), 
+  canActivate: [AuthGuard]},
 ];
+
+const routesDomain2: Routes = [
+  { path: '', component: AuthComponent },
+  { path: 'callback', component: CallbackComponent },
+  { path: 'chat', loadComponent: () =>
+  import('@chatwidget/chat').then((m) => m.ChatComponent), 
+  canActivate: [AuthGuard]},
+];
+
+function dynamicRoutes(): Routes {
+  if (window.location.hostname === 'localhost') {
+    if (window.location.port === '4200') {
+      return routesDomain1;
+    } else if (window.location.port === '4201') {
+      return routesDomain2;
+    }
+  }
+  return [];
+}
 
 @NgModule({
   declarations: [AppComponent,],
   imports: [
     BrowserModule, 
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(dynamicRoutes()),
     AuthModule.forRoot({
       domain: environment.domain,
       clientId: environment.clientId,
       authorizationParams: {
-        redirect_uri: environment.callback_url,
+        redirect_uri: `${window.location.origin}/callback`,
         audience: environment.audience
       },
       httpInterceptor: {
