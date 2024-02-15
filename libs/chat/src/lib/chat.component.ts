@@ -1,4 +1,4 @@
-import { Component, NgZone, OnInit } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { ApiService } from '@chatwidget/api';
 import { ChannelService, ChatClientService, StreamChatModule, StreamI18nService } from 'stream-chat-angular';
 import { AuthService } from '@auth0/auth0-angular';
@@ -15,6 +15,10 @@ import { AuthComponent } from '@chatwidget/auth';
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent implements OnInit {
+  apiKey = '63bygjq8kbu4';
+
+  showAddButton = false;
+  showDeclareButton = false;
 
   constructor(
     private api: ApiService,
@@ -23,16 +27,11 @@ export class ChatComponent implements OnInit {
     private chatService: ChatClientService,
     private channelService: ChannelService,
     private streamI18nService: StreamI18nService,
-    private ngZone: NgZone
-  ) {}
-
-  addChannel() {
-    this.router.navigateByUrl('/add-channel');
-  }
+  ) {
+    this.showAddButton = this.isRouteAvailable('add-channel');
+   }
 
   ngOnInit() {
-    const apiKey = '63bygjq8kbu4';
-
     if (this.auth.isAuthenticated$) {
 
       let username = "";
@@ -45,28 +44,30 @@ export class ChatComponent implements OnInit {
       // console.log('Token: ', token);
 
       // Initialize chat service and set translation
-      this.chatService.init(apiKey, username, token);
+      this.chatService.init(this.apiKey, username, token);
       this.streamI18nService.setTranslation();
 
-      // Initialize channel
-      // const channel = this.chatService.chatClient.channel('messaging', 'talking-about-angular', {
-      //   image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/2048px-Angular_full_color_logo.svg.png',
-      //   name: 'Talking about Angular',
-      // });
-
-      // channel.create();
+      // Get all channels the user is in
       this.channelService.init({
         type: 'messaging',
         members: {$in: [username]} 
       });
 
-      // this.ngZone.run(() => {
-        this.channelService.activeChannel$.subscribe(channel => {
-          console.log(channel);
-        });
-      // });
+      // Get active channel
+      this.channelService.activeChannel$.subscribe(channel => {
+        console.log(channel);
+      });
       
     });
     }
   }
+
+  addChannel() {
+    this.router.navigateByUrl('/add-channel');
+  }
+
+  isRouteAvailable(path: string): boolean {
+    return this.router.config.some(route => route.path === path);
+  }
+
 }
