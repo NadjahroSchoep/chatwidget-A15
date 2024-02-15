@@ -30,20 +30,22 @@
           "budgets": [
             {
               "type": "initial",
-              "maximumWarning": "1mb",
-              "maximumError": "2mb"
+              "maximumWarning": "2mb",
+              "maximumError": "5mb"
             },
             {
               "type": "anyComponentStyle",
               "maximumWarning": "2mb",
-              "maximumError": "4mb"
+              "maximumError": "5mb"
             }
           ],
-          "outputHashing": "all"
+          "buildOptimizer": true,
+          "optimization": false, 
+          "extractLicenses": false
         },
         "development": {
           "buildOptimizer": false,
-          "optimization": false,
+          "optimization": false, 
           "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from "@angular/core";
 import { ApiService } from '@chatwidget/api';
 import { ChannelService, ChatClientService, StreamChatModule, StreamI18nService } from 'stream-chat-angular';
 import { AuthService } from '@auth0/auth0-angular';
@@ -23,6 +23,7 @@ export class ChatComponent implements OnInit {
     private chatService: ChatClientService,
     private channelService: ChannelService,
     private streamI18nService: StreamI18nService,
+    private ngZone: NgZone
   ) {}
 
   addChannel() {
@@ -58,6 +59,13 @@ export class ChatComponent implements OnInit {
         type: 'messaging',
         members: {$in: [username]} 
       });
+
+      // this.ngZone.run(() => {
+        this.channelService.activeChannel$.subscribe(channel => {
+          console.log(channel);
+        });
+      // });
+      
     });
     }
   }
