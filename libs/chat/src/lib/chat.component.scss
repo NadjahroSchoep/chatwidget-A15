@@ -65,6 +65,21 @@ body {
     }
   }
 
+  #declare-button {
+    position: absolute;
+    width: fit-content;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    padding-left: 5vh;
+    padding-right: 5vh;
+    margin: 20px;
+    color: white;
+    background-color: #0050EF;
+    border: none;
+    border-radius: 20px;
+  }
+
   stream-channel-list {
     width: 100%;
   }

@@ -33,32 +33,30 @@ export class ChatComponent implements OnInit {
 
   ngOnInit() {
     if (this.auth.isAuthenticated$) {
-
       let username = "";
     
       this.api.getToken().subscribe(response => {
-      // console.log(response);
-      const token = response.token;
-      username = response.username;
-      console.log(username);
-      // console.log('Token: ', token);
+        // console.log(response);
+        const token = response.token;
+        username = response.username;
+        console.log(username);
+        // console.log('Token: ', token);
 
-      // Initialize chat service and set translation
-      this.chatService.init(this.apiKey, username, token);
-      this.streamI18nService.setTranslation();
+        // Initialize chat service and set translation
+        this.chatService.init(this.apiKey, username, token);
+        this.streamI18nService.setTranslation();
 
-      // Get all channels the user is in
-      this.channelService.init({
-        type: 'messaging',
-        members: {$in: [username]} 
+        // Get all channels the user is in
+        this.channelService.init({
+          type: 'messaging',
+          members: {$in: [username]} 
+        });
+
+        // Get active channel
+        this.channelService.activeChannel$.subscribe(channel => {
+          console.log(channel);
+        });
       });
-
-      // Get active channel
-      this.channelService.activeChannel$.subscribe(channel => {
-        console.log(channel);
-      });
-      
-    });
     }
   }
 

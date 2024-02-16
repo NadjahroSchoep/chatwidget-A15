@@ -1,7 +1,6 @@
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { Component, Inject } from '@angular/core';
 import { AuthModule, AuthService } from '@auth0/auth0-angular';
-import { ApiService } from '@chatwidget/api';
 
 @Component({
   selector: 'chatwidget-auth',
@@ -17,7 +16,6 @@ export class AuthComponent {
   
   constructor(
     public auth: AuthService,
-    private api: ApiService,
     @Inject(DOCUMENT) private doc: Document
     ) {}
 
