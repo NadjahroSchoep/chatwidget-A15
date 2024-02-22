@@ -21,7 +21,6 @@ const routes: Routes = [
   canActivate: [AuthGuard]},
 ];
 
-
 @NgModule({
   declarations: [AppComponent,],
   imports: [

@@ -30,7 +30,7 @@ export class ChatComponent implements OnInit {
   ) {
     this.showAddButton = this.isRouteAvailable('add-channel');
    }
-
+   
   ngOnInit() {
     if (this.auth.isAuthenticated$) {
       let username = "";
