@@ -51,10 +51,18 @@ export class ChatComponent implements OnInit {
           type: 'messaging',
           members: {$in: [username]} 
         });
-
-        // Get active channel
+        
+        // Get active channel and check if it is a consult channel
         this.channelService.activeChannel$.subscribe(channel => {
-          console.log(channel);
+          if (channel?.data) {
+            const channelType = channel.data['channel-type'];
+            if (channelType === 'consult') {
+              this.showDeclareButton = true;
+              // console.log(channelType);
+            } else {
+              this.showDeclareButton = false;
+            }
+          }
         });
       });
     }
@@ -62,6 +70,10 @@ export class ChatComponent implements OnInit {
 
   addChannel() {
     this.router.navigateByUrl('/add-channel');
+  }
+
+  getConsult() {
+    window.alert('Consult declared. ');
   }
 
   isRouteAvailable(path: string): boolean {

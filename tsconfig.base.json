@@ -17,8 +17,7 @@
     "paths": {
       "@chatwidget/api": ["libs/api/src/index.ts"],
       "@chatwidget/auth": ["libs/auth/src/index.ts"],
-      "@chatwidget/chat": ["libs/chat/src/index.ts"],
-      "@chatwidget/consult": ["libs/consult/src/index.ts"]
+      "@chatwidget/chat": ["libs/chat/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

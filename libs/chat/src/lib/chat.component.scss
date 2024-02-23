@@ -17,6 +17,7 @@ body {
 }
 
 #chat {
+  position: relative;
   display: flex;
   height: 100%;
   
@@ -68,6 +69,7 @@ body {
   #declare-button {
     position: absolute;
     width: fit-content;
+    z-index: 1; // button is otherwise behind the chat
     top: 0;
     right: 0;
     padding: 10px;

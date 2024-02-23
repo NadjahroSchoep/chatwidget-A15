@@ -21,10 +21,7 @@ const routesDomain1: Routes = [
   canActivate: [AuthGuard]},
   { path: 'add-channel', loadComponent: () =>
   import('@chatwidget/chat').then((m) => m.AddChannelComponent), 
-  canActivate: [AuthGuard]},
-  { path: 'consult', loadComponent: () =>
-  import('@chatwidget/consult').then((m) => m.ConsultComponent), 
-  canActivate: [AuthGuard]},
+  canActivate: [AuthGuard]}
 ];
 
 const routesDomain2: Routes = [
