@@ -16,15 +16,6 @@ export class ApiService {
 
   getToken(): Observable<any>{
     return this.http.get(`${this.baseUrl}/stream/token`,{responseType: 'json'})
-    // return this.http.get<string>(`${this.baseUrl}/api/stream/token?username=${username}`,{responseType: 'text'}) 
-    // .subscribe(
-    //   (response) => {
-    //     console.log(response);
-    //   },
-    //   (error) => {
-    //     console.error('Error:', error);
-    //   }
-    // );
   }
 
   getChannel(channelType: string, channelId: string, user1: string, users: string[]): Observable<any> {

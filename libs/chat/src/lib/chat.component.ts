@@ -55,6 +55,7 @@ export class ChatComponent implements OnInit {
         // Get active channel and check if it is a consult channel
         this.channelService.activeChannel$.subscribe(channel => {
           if (channel?.data) {
+            console.log(channel.data);
             const channelType = channel.data['channel-type'];
             if (channelType === 'consult') {
               this.showDeclareButton = true;
@@ -73,7 +74,7 @@ export class ChatComponent implements OnInit {
   }
 
   getConsult() {
-    window.alert('Consult declared. ');
+    window.alert('Consult declared.');
   }
 
   isRouteAvailable(path: string): boolean {

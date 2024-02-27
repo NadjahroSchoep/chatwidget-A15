@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ChannelService, ChatClientService, StreamChatModule, StreamI18nService } from 'stream-chat-angular';
+import { StreamChatModule } from 'stream-chat-angular';
 import { ApiService } from '@chatwidget/api';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '@auth0/auth0-angular';
@@ -26,9 +26,6 @@ export class AddChannelComponent implements OnInit{
     private api: ApiService,
     private auth: AuthService,
     private location: Location,
-    private chatService: ChatClientService,
-    private channelService: ChannelService,
-    private streamI18nService: StreamI18nService,
   ) {}
 
   ngOnInit() {
@@ -46,7 +43,6 @@ export class AddChannelComponent implements OnInit{
       this.users = this.users.filter(elem => elem !== this.username);
       console.log(response);
     });
-    this.selectedUsers.push
   }
 
   // Get all users
