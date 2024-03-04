@@ -52,7 +52,7 @@ export class AddChannelComponent implements OnInit{
     });
   }
 
-  // Add a user to the selected users, also checks for duplicates
+  // Add a user to the selected users, also removes them if they are already in the list (when a user is unselected)
   addUser(username: string) {
     const index = this.selectedUsers.indexOf(username);
     if (index < 0) {

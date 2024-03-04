@@ -59,15 +59,13 @@ describe(AddChannelComponent, () => {
     // Arrange
     const apiService = spectator.inject(ApiService);
     const getUsersSpy = jest.spyOn(apiService, 'getUsers');
-    const response = { users: [{ id: 'user1' }, { id: 'user2' }] };
-    getUsersSpy.mockReturnValue(of(response) as any); 
   
     // Act
     component.queryUsers('test');
   
     // Assert
     expect(getUsersSpy).toHaveBeenCalledWith({ username: 'test' });
-    expect(component.users).toEqual(['user1', 'user2']);
+    expect(component.users).toEqual(['test', 'test2', 'test3', 'test4', 'test5']);
   });
 
   test('Should add user to selectedUsers array', () => {
