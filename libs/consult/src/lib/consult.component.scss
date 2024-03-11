@@ -1,0 +1,96 @@
+@import 'stream-chat-angular/src/assets/styles/v2/scss/index.scss';
+
+:host {
+    display: block;
+    height: 100vh;
+    width: 100vw;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+  margin: 0;
+  height: 100%;
+}
+
+#chat {
+  position: relative;
+  display: flex;
+  height: 100%;
+  
+  #channel-list-container {
+    width: 20%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column; 
+    min-width: 20%;
+
+
+    #channel-list-bar {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      min-height: 10%;
+      // height: 85%;
+    }
+
+    #add-button {
+      width: fit-content  ;
+      padding: 10px;
+      padding-left: 7vh;
+      padding-right: 5vh;
+      margin: 20px;
+      color: white;
+      background-color: #0050EF;
+      border: none;
+      border-radius: 20px;
+    }
+
+    #plus-icon {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 20px;
+      height: 20px;
+      border: 2px solid gray;
+      color: gray;
+      border-radius: 50%;
+      margin-right: 5px;
+      font-size: 14px;
+    }
+  }
+
+  #declare-button {
+    position: absolute;
+    width: fit-content;
+    z-index: 1; // button is otherwise behind the chat
+    top: 0;
+    right: 0;
+    padding: 10px;
+    padding-left: 5vh;
+    padding-right: 5vh;
+    margin: 20px;
+    color: white;
+    background-color: #0050EF;
+    border: none;
+    border-radius: 20px;
+  }
+
+  stream-channel-list {
+    width: 100%;
+  }
+
+  stream-channel {
+    width: 100%;
+  }
+
+  stream-thread {
+    width: 45%;
+  }
+}

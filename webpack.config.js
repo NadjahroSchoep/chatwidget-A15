@@ -4,6 +4,9 @@
 
   module.exports = {
     entry: './apps/chatwidget/src/main.ts',
+    devServer: {
+      disableHostCheck: true
+    },
     output: {
       filename: '[name].js',
       // chunkFilename: '[id].js', 
