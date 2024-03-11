@@ -19,6 +19,9 @@ export class ChatComponent implements OnInit {
 
   showAddButton = false;
   showDeclareButton = false;
+  showConsultButton = true;
+
+  consultButtonText = '';
 
   constructor(
     private api: ApiService,
@@ -29,6 +32,7 @@ export class ChatComponent implements OnInit {
     private streamI18nService: StreamI18nService,
   ) {
     this.showAddButton = this.isRouteAvailable('add-channel');
+    // this.showConsultButton = this.isRouteAvailable('consult');
    }
    
   ngOnInit() {
@@ -69,7 +73,8 @@ export class ChatComponent implements OnInit {
         this.channelService.channels$.subscribe(channels => {
           if (channels) {
             const emptyChannels = channels.filter(channel => channel.state.last_message_at === null);
-            console.log(`Number of channels with no messages: ${emptyChannels.length}`);
+            this.consultButtonText = emptyChannels.length.toString();
+            // console.log(`Number of channels with no messages: ${emptyChannels.length}`);
           }
         });
       });
@@ -80,7 +85,11 @@ export class ChatComponent implements OnInit {
     this.router.navigateByUrl('/add-channel');
   }
 
-  getConsult() {
+  consults() {
+    this.router.navigateByUrl('/add-channel');
+  }
+
+  declareConsult() {
     window.alert('Consult declared.');
   }
 

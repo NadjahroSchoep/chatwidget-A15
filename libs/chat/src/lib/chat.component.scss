@@ -21,7 +21,7 @@ body {
   display: flex;
   height: 100%;
   
-  #channel-list-container {
+  #channel-list-div {
     width: 20%;
     overflow-y: auto;
     overflow-x: hidden;
@@ -31,13 +31,11 @@ body {
     flex-direction: column; 
     min-width: 20%;
 
-
     #channel-list-bar {
       width: 100%;
       display: flex;
       flex-direction: column;
       min-height: 10%;
-      // height: 85%;
     }
 
     #add-button {
@@ -81,6 +79,22 @@ body {
     border: none;
     border-radius: 20px;
   }
+
+  #consults-button {
+    position: absolute;
+    width: fit-content;
+    z-index: 1; // button is otherwise behind the chat
+    top: 0;
+    right: 0;
+    padding: 3px;
+    margin: 20px;
+    color: white;
+    background-color: #0050EF;
+    border: none;
+    border-radius: 20px;
+  }
+
+
 
   stream-channel-list {
     width: 100%;

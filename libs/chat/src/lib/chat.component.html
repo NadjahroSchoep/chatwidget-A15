@@ -1,5 +1,5 @@
 <div id="chat">
-  <div id="channel-list-container">
+  <div id="channel-list-div">
     <chatwidget-auth></chatwidget-auth>
     <ngx-simplebar id="channel-list-bar">
       <stream-channel-list>
@@ -9,8 +9,12 @@
     <!-- <button id="add-button" (click)="addChannel()">Add channel <span id="plus-icon">+</span></button> -->
   </div>
 
-  <button id="declare-button" *ngIf="showDeclareButton" (click)="getConsult()">Declare</button>
-    
+  <button id="declare-button" *ngIf="showDeclareButton" (click)="declareConsult()">Declare</button>
+  <div id="consult_">
+
+  </div>
+  <button id="consults-button" *ngIf="showConsultButton" (click)="consults()">{{ consultButtonText }}</button>
+
   <stream-channel>
     <stream-channel-header></stream-channel-header>
     <stream-message-list></stream-message-list>
