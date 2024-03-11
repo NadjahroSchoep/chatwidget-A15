@@ -55,7 +55,7 @@ export class ChatComponent implements OnInit {
         // Get active channel and check if it is a consult channel
         this.channelService.activeChannel$.subscribe(channel => {
           if (channel?.data) {
-            console.log(channel.data);
+            // console.log(channel.data);
             const channelType = channel.data['channel-type'];
             if (channelType === 'consult') {
               this.showDeclareButton = true;
@@ -63,6 +63,13 @@ export class ChatComponent implements OnInit {
             } else {
               this.showDeclareButton = false;
             }
+          }
+        });
+
+        this.channelService.channels$.subscribe(channels => {
+          if (channels) {
+            const emptyChannels = channels.filter(channel => channel.state.last_message_at === null);
+            console.log(`Number of channels with no messages: ${emptyChannels.length}`);
           }
         });
       });

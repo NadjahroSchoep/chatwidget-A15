@@ -1,24 +1,3 @@
 <div id="chat">
-  <div id="channel-list-container">
-    <chatwidget-auth></chatwidget-auth>
-    <ngx-simplebar id="channel-list-bar">
-      <stream-channel-list>
-      </stream-channel-list>
-    </ngx-simplebar>
-    <button id="add-button" *ngIf="showAddButton" (click)="addChannel()">Add channel <span id="plus-icon">+</span></button>
-    <!-- <button id="add-button" (click)="addChannel()">Add channel <span id="plus-icon">+</span></button> -->
-  </div>
-
-  <button id="declare-button" *ngIf="showDeclareButton" (click)="getConsult()">Declare</button>
-    
-  <stream-channel>
-    <stream-channel-header></stream-channel-header>
-    <stream-message-list></stream-message-list>
-    <stream-notification-list></stream-notification-list>
-    <stream-message-input></stream-message-input>
-    <stream-thread name="thread">
-      <stream-message-list mode="thread"></stream-message-list>
-      <stream-message-input mode="thread"></stream-message-input>
-    </stream-thread>
-  </stream-channel>
+  <div id="counter"></div>
 </div>

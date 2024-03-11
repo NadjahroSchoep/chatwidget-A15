@@ -16,9 +16,12 @@ import { environment } from '../environments/environment';
 const routes: Routes = [
   { path: '', component: AuthComponent },
   { path: 'callback', component: CallbackComponent },
-  { path: 'chat', loadChildren: () =>
-  import('@chatwidget/chat').then((m) => m.ChatModule), 
+  { path: 'chat', loadComponent: () =>
+  import('@chatwidget/chat').then((m) => m.ChatComponent), 
   canActivate: [AuthGuard]},
+  // { path: 'chat', loadChildren: () =>
+  // import('@chatwidget/chat').then((m) => m.ChatModule), 
+  // canActivate: [AuthGuard]},
 ];
 
 @NgModule({
