@@ -30,7 +30,7 @@ const routes: Routes = [
       domain: environment.domain,
       clientId: environment.clientId,
       authorizationParams: {
-        redirect_uri: environment.callback_url,
+        redirect_uri: `${window.location.origin}/callback`,
         audience: environment.audience
       },
       httpInterceptor: {
