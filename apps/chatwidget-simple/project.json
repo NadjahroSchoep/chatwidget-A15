@@ -18,7 +18,7 @@
         "assets": [
           "apps/chatwidget-simple/src/favicon.ico",
           "apps/chatwidget-simple/src/assets",
-          "apps/chatwidget-simple/_redirects"
+          "_redirects"
         ],
         "styles": [
           "apps/chatwidget/src/styles.scss",
