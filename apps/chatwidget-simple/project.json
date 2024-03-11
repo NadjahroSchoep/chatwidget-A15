@@ -18,7 +18,8 @@
         "assets": [
           "apps/chatwidget-simple/src/favicon.ico",
           "apps/chatwidget-simple/src/assets",
-          "_redirects"
+          "apps/chatwidget-simple/_redirects",
+          "apps/chatwidget-simple/netify.toml"
         ],
         "styles": [
           "apps/chatwidget/src/styles.scss",
