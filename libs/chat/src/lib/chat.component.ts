@@ -86,7 +86,7 @@ export class ChatComponent implements OnInit {
   }
 
   consults() {
-    this.router.navigateByUrl('/add-channel');
+    this.router.navigateByUrl('/consult');
   }
 
   declareConsult() {

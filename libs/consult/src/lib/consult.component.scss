@@ -1,96 +1,87 @@
-@import 'stream-chat-angular/src/assets/styles/v2/scss/index.scss';
-
-:host {
-    display: block;
-    height: 100vh;
-    width: 100vw;
-}
-
-html {
-  height: 100%;
-}
-
-body {
-  overflow: hidden;
-  margin: 0;
-  height: 100%;
-}
-
-#chat {
-  position: relative;
+#container {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100%;
-  
-  #channel-list-container {
-    width: 20%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column; 
-    min-width: 20%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
 
+#channel-div{
+  border: #0050EF 1px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 22px;
+  height: 80%;
+  width: 62%;
+  margin: auto;
+  overflow: hidden;
 
-    #channel-list-bar {
+  .channel-list{
+      border: #0050EF 1px solid;
+      border-radius: 22px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
       width: 100%;
       display: flex;
       flex-direction: column;
-      min-height: 10%;
-      // height: 85%;
-    }
-
-    #add-button {
-      width: fit-content  ;
-      padding: 10px;
-      padding-left: 7vh;
-      padding-right: 5vh;
-      margin: 20px;
-      color: white;
-      background-color: #0050EF;
-      border: none;
-      border-radius: 20px;
-    }
-
-    #plus-icon {
-      display: inline-flex;
-      justify-content: center;
       align-items: center;
-      width: 20px;
-      height: 20px;
-      border: 2px solid gray;
-      color: gray;
-      border-radius: 50%;
-      margin-right: 5px;
-      font-size: 14px;
-    }
+      justify-content: flex-start;
+      overflow-y: auto;
+      overflow-x: hidden;
+      margin: auto;
+      
+      #channel-item {
+          display: flex;
+          align-items: center;
+          margin: 5px auto;
+          border-radius: 22px;
+          user-select: none;
+  
+          #profile-pic {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 40px;
+              width: 40px;
+              border-radius: 50%;
+              color: white;
+              background-color: #0050EF;
+              margin-right: 10px;
+              text-transform: uppercase;
+          }
+      }
   }
+}
 
-  #declare-button {
-    position: absolute;
-    width: fit-content;
-    z-index: 1; // button is otherwise behind the chat
-    top: 0;
-    right: 0;
-    padding: 10px;
-    padding-left: 5vh;
-    padding-right: 5vh;
-    margin: 20px;
-    color: white;
-    background-color: #0050EF;
-    border: none;
-    border-radius: 20px;
-  }
+#channel-add {
+  width: auto;
+  height: 50px;
+  width: fit-content;
+  padding: 20px;
+  color: white;
+  background-color: #0050EF;
+  border: none;
+  border-radius: 30px;
+  margin: 10px auto;
+}
 
-  stream-channel-list {
-    width: 100%;
-  }
 
-  stream-channel {
-    width: 100%;
-  }
+#back-button {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  border: none;
+  background: none;
+  color: #0050EF;
+  font-size: 4em;
+  cursor: pointer;
+}
 
-  stream-thread {
-    width: 45%;
-  }
+::ng-deep .simplebar-track.vertical {
+  height: 100%;
 }

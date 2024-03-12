@@ -1,3 +1,17 @@
-<div id="chat">
-  <div id="counter"></div>
+<div id="container">
+  <div id="channel-div">
+    <!-- <input id="user-search" type="search" placeholder="Search users" [(ngModel)]="inputname" (input)="queryUsers(inputname)" /> -->
+    <h2>Notifications</h2>
+    <ngx-simplebar class="channel-list">
+        <div class="channel-list">
+            <div id="channel-item" *ngFor="let channel of channels; let i = index" (click)="goToChat(channel)">
+                <div id="profile-pic">{{ channel[0] }}</div>
+                <label for="channel{{i}}">{{ channel }}</label>
+            </div>
+        </div>
+    </ngx-simplebar>
+  </div>
 </div>
+
+
+<button id="back-button" (click)="return()">&#8592;</button>
