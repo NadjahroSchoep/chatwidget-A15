@@ -19,7 +19,7 @@ export class ChatComponent implements OnInit {
 
   showAddButton = false;
   showDeclareButton = false;
-  showConsultButton = true;
+  showConsultButton = false;
 
   consultButtonText = '';
 
@@ -32,7 +32,7 @@ export class ChatComponent implements OnInit {
     private streamI18nService: StreamI18nService,
   ) {
     this.showAddButton = this.isRouteAvailable('add-channel');
-    // this.showConsultButton = this.isRouteAvailable('consult');
+    this.showConsultButton = this.isRouteAvailable('consult');
    }
    
   ngOnInit() {
@@ -59,7 +59,7 @@ export class ChatComponent implements OnInit {
         // Get active channel and check if it is a consult channel
         this.channelService.activeChannel$.subscribe(channel => {
           if (channel?.data) {
-            // console.log(channel.data);
+            console.log(channel.data);  
             const channelType = channel.data['channel-type'];
             if (channelType === 'consult') {
               this.showDeclareButton = true;

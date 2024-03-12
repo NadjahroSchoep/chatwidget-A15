@@ -10,10 +10,11 @@
   </div>
 
   <button id="declare-button" *ngIf="showDeclareButton" (click)="declareConsult()">Declare</button>
-  <div id="consult_">
 
+  <div id="consult_div">
+      <button id="consults-button" *ngIf="showConsultButton" (click)="consults()">{{ consultButtonText }}</button>
   </div>
-  <button id="consults-button" *ngIf="showConsultButton" (click)="consults()">{{ consultButtonText }}</button>
+  
 
   <stream-channel>
     <stream-channel-header></stream-channel-header>

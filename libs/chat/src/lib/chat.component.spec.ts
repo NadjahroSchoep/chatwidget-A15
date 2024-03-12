@@ -3,8 +3,7 @@ import { ChatComponent } from "./chat.component";
 import { AuthService } from "@auth0/auth0-angular";
 import { ApiService } from '@chatwidget/api';
 import { of } from "rxjs";
-import { waitForAsync } from "@angular/core/testing";
-import { ChannelService, ChatClientService, StreamChatModule, StreamI18nService } from 'stream-chat-angular';
+import { ChannelService, ChatClientService, StreamI18nService } from 'stream-chat-angular';
 
 
 describe(ChatComponent, () => {
