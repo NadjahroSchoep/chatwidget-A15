@@ -1,4 +1,5 @@
 @import 'stream-chat-angular/src/assets/styles/v2/scss/index.scss';
+@import '~@fortawesome/fontawesome-free/css/all.css';
 
 :host {
     display: block;
@@ -74,7 +75,7 @@ body {
     padding-left: 5vh;
     padding-right: 5vh;
     margin: 20px;
-    margin-right: 40px;
+    margin-right: 10vh;
     color: white;
     background-color: #0050EF;
     border: none;
@@ -87,8 +88,17 @@ body {
     top: 0;
     right: 0;
     margin: 20px;
+
+    .fas.fa-bell {
+      font-size: 40px;
+      color: grey;
+      padding-right: 5px;
+    }
   
     #consults-button {
+      position: absolute;
+      top: 0;
+      right: 0;
       width: fit-content;
       z-index: 1;
       padding: 3px;
@@ -96,7 +106,6 @@ body {
       background-color: #0050EF;
       border: none;
       border-radius: 20px;
-      position: relative;
     }
   }
   

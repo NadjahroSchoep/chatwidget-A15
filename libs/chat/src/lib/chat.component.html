@@ -11,10 +11,10 @@
 
   <button id="declare-button" *ngIf="showDeclareButton" (click)="declareConsult()">Declare</button>
 
-  <div id="consult_div">
-      <button id="consults-button" *ngIf="showConsultButton" (click)="consults()">{{ consultButtonText }}</button>
+  <div id="consult_div" (click)="consults()">
+      <i class="fas fa-bell"></i>
+      <div id="consults-button" *ngIf="showConsultButton">{{ consultButtonText }}</div>
   </div>
-  
 
   <stream-channel>
     <stream-channel-header></stream-channel-header>
