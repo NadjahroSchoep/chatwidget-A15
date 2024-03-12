@@ -62,7 +62,7 @@ export class AddChannelComponent implements OnInit{
         // User is in array, remove them
         this.selectedUsers.splice(index, 1);
     }
-    console.log(this.selectedUsers);
+    // console.log(this.selectedUsers);
   }
 
   // Create a channel using the list of selectd users

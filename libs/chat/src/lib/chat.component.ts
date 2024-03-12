@@ -72,7 +72,10 @@ export class ChatComponent implements OnInit {
         // Get all channels with no messages
         this.channelService.channels$.subscribe(channels => {
           if (channels) {
-            const emptyChannels = channels.filter(channel => channel.state.last_message_at === null);
+            const emptyChannels = channels.filter(channel => 
+              channel.state.last_message_at === null 
+              && channel.data 
+              && channel.data['channel-type'] === 'consult');
             this.consultButtonText = emptyChannels.length.toString();
             // console.log(`Number of channels with no messages: ${emptyChannels.length}`);
           }

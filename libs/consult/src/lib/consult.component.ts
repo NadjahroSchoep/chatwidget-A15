@@ -34,7 +34,10 @@ Object: any;
   ngOnInit() {
     this.channelService.channels$.subscribe(channels => {
       if (channels) {
-        const emptyChannels = channels.filter(channel => channel.state.last_message_at === null);
+        const emptyChannels = channels.filter(channel => 
+          channel.state.last_message_at === null 
+          && channel.data 
+          && channel.data['channel-type'] === 'consult');
         // this.channels = emptyChannels.map(channel => (channel.data?.id as string).toString());
         this.channels = emptyChannels;
         // console.log(`Number of channels with no messages: ${emptyChannels.length}`);
