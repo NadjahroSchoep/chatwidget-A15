@@ -13,6 +13,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { environment } from '../environments/environment';
 
+// Set of routes 1
 const routesDomain1: Routes = [
   { path: '', component: AuthComponent },
   { path: 'callback', component: CallbackComponent },
@@ -27,6 +28,7 @@ const routesDomain1: Routes = [
   canActivate: [AuthGuard]}
 ];
 
+// Set of routes 2
 const routesDomain2: Routes = [
   { path: '', component: AuthComponent },
   { path: 'callback', component: CallbackComponent },
@@ -35,6 +37,7 @@ const routesDomain2: Routes = [
   canActivate: [AuthGuard]},
 ];
 
+// Dynamically changes the routes based on the domain or in this case the port 
 function dynamicRoutes(): Routes {
   if (window.location.hostname === 'localhost') {
     if (window.location.port === '4200') {
@@ -51,6 +54,7 @@ function dynamicRoutes(): Routes {
   imports: [
     BrowserModule, 
     RouterModule.forRoot(dynamicRoutes()),
+    // Auth0 setup
     AuthModule.forRoot({
       domain: environment.domain,
       clientId: environment.clientId,
@@ -58,16 +62,17 @@ function dynamicRoutes(): Routes {
         redirect_uri: `${window.location.origin}/callback`,
         audience: environment.audience
       },
+      // Allow Auth0 to send the token to the API
       httpInterceptor: {
         allowedList: [environment.api_url+'*'],
       },
-      // useRefreshTokens: true,
     }),
     TranslateModule.forRoot(),
     StreamAutocompleteTextareaModule,
     StreamChatModule,
     HttpClientModule
   ],
+  // Send Auth0 token with every request
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

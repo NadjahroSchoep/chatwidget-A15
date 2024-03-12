@@ -44,7 +44,6 @@ export class ChatComponent implements OnInit {
         const token = response.token;
         username = response.username;
         console.log(username);
-        // console.log('Token: ', token);
 
         // Initialize chat service and set translation
         this.chatService.init(this.apiKey, username, token);
@@ -59,7 +58,7 @@ export class ChatComponent implements OnInit {
         // Get active channel and check if it is a consult channel
         this.channelService.activeChannel$.subscribe(channel => {
           if (channel?.data) {
-            console.log(channel.data);  
+            // console.log(channel.data);
             const channelType = channel.data['channel-type'];
             if (channelType === 'consult') {
               this.showDeclareButton = true;
@@ -70,6 +69,7 @@ export class ChatComponent implements OnInit {
           }
         });
 
+        // Get all channels with no messages
         this.channelService.channels$.subscribe(channels => {
           if (channels) {
             const emptyChannels = channels.filter(channel => channel.state.last_message_at === null);

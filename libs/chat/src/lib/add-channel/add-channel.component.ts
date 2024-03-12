@@ -80,6 +80,4 @@ export class AddChannelComponent implements OnInit{
   return() {
     this.location.back();
   }
-
-  
 }
