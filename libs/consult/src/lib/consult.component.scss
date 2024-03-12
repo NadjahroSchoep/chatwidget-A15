@@ -41,18 +41,33 @@
           margin: 5px auto;
           border-radius: 22px;
           user-select: none;
+          
   
           #profile-pic {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              height: 40px;
-              width: 40px;
-              border-radius: 50%;
-              color: white;
-              background-color: #0050EF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            color: white;
+            background-color: #0050EF;
+            margin-right: 10px;
+            text-transform: uppercase;
+          }
+
+          .text-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        
+            label {
+              font-weight: bold;
               margin-right: 10px;
-              text-transform: uppercase;
+            }
+        
+           
           }
       }
   }

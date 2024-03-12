@@ -68,7 +68,7 @@ export class AddChannelComponent implements OnInit{
   // Create a channel using the list of selectd users
   addChannel() {
     this.api.createChannel(this.channelName, this.selectedUsers).subscribe(
-      response => {
+      () => {
         // console.log(response);
         this.return();
       },

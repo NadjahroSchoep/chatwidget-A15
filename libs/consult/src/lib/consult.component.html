@@ -1,17 +1,22 @@
 <div id="container">
   <div id="channel-div">
-    <!-- <input id="user-search" type="search" placeholder="Search users" [(ngModel)]="inputname" (input)="queryUsers(inputname)" /> -->
     <h2>Notifications</h2>
     <ngx-simplebar class="channel-list">
         <div class="channel-list">
-            <div id="channel-item" *ngFor="let channel of channels; let i = index" (click)="goToChat(channel)">
-                <div id="profile-pic">{{ channel[0] }}</div>
-                <label for="channel{{i}}">{{ channel }}</label>
+          <div id="channel-item" *ngFor="let channel of channels; let i = index" (click)="goToChat(channel)">
+            <div id="profile-pic">{{ getFirstChar(channel.data?.id) }}</div>
+            <div class="text-container">
+              <label for="channel{{i}}">{{ channel.data?.id }}</label>
+              <div class="members">
+                <span *ngFor="let member of (channel.state?.members | keyvalue | slice:0:2)">
+                  {{ member.key }}
+                </span>
+              </div>
             </div>
+          </div>
         </div>
     </ngx-simplebar>
   </div>
 </div>
-
 
 <button id="back-button" (click)="return()">&#8592;</button>
