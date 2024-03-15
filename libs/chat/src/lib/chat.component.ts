@@ -15,8 +15,8 @@ import { AuthComponent } from '@chatwidget/auth';
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent implements OnInit {
-  private apiKey = '63bygjq8kbu4';
-  private initialized = false;
+  apiKey = '63bygjq8kbu4';
+  initialized = false;
 
   showAddButton = false;
   showDeclareButton = false;
@@ -52,7 +52,6 @@ export class ChatComponent implements OnInit {
           this.streamI18nService.setTranslation();
           this.initialized = true;
         }
-        
 
         // Get all channels the user is in
         this.channelService.init({

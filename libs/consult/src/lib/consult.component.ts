@@ -19,16 +19,12 @@ import { Channel } from "stream-chat";
 export class ConsultComponent implements OnInit {
   // channels: string[] = [];
   channels: Channel<DefaultStreamChatGenerics>[] = [];
-Object: any;
 
   constructor(
     private api: ApiService,
-    private auth: AuthService,
-    private chatService: ChatClientService,
     private channelService: ChannelService,
     private location: Location,
     private router: Router,
-    private streamI18nService: StreamI18nService,
   ) { }
    
   ngOnInit() {
@@ -38,10 +34,8 @@ Object: any;
           channel.state.last_message_at === null 
           && channel.data 
           && channel.data['channel-type'] === 'consult');
-        // this.channels = emptyChannels.map(channel => (channel.data?.id as string).toString());
         this.channels = emptyChannels;
-        // console.log(`Number of channels with no messages: ${emptyChannels.length}`);
-        console.log(this.channels);
+        // console.log(this.channels);
       }
     });
   }
