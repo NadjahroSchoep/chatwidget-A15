@@ -11,9 +11,9 @@ const dependencies = new Set([
 
 module.exports = {  
   name: 'chat-module',
-  // exposes: {
-  //   './Module': 'apps/chat-module/src/app/remote-entry/entry.module.ts',
-  // },
+  exposes: {
+    './Module': 'apps/chat-module/src/app/app.module.ts',
+  },
   filename: './remote.js',
   publicPath: 'http://localhost:4200/',
   remotes: [],

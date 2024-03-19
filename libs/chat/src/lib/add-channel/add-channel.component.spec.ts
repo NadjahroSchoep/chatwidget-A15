@@ -69,6 +69,9 @@ describe(AddChannelComponent, () => {
   });
 
   test('Should add user to selectedUsers array', () => {
+    // Arrange
+    component.selectedUsers = [];
+  
     // Act
     component.addUser('test');
   
