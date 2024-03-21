@@ -1,9 +1,9 @@
 <div id="container">
-  <div id="channel-div">
+  <div id="consult-div">
     <h2>Notifications</h2>
-    <ngx-simplebar class="channel-list">
-        <div class="channel-list">
-          <div id="channel-item" *ngFor="let channel of channels; let i = index" (click)="goToChat(channel)">
+    <ngx-simplebar class="consult-list">
+        <div class="consult-list">
+          <div id="consult-item" *ngFor="let channel of channels; let i = index" (click)="goToChat(channel)">
             <div id="profile-pic">{{ getFirstChar(channel.data?.id) }}</div>
             <div class="text-container">
               <label for="channel{{i}}">{{ channel.data?.id }}</label>

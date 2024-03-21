@@ -46,7 +46,7 @@ export class ConsultComponent implements OnInit {
   }
 
   // Get the first character of the id to use as an avatar
-  getFirstChar(id: any): string {
+  getFirstChar(id: unknown): string {
     return typeof id === 'string' ? id.charAt(0) : '';
   }
 

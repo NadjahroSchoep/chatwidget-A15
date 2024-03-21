@@ -59,31 +59,9 @@ export class ChatComponent implements OnInit {
           members: {$in: [username]} 
         });
         
-        // Get active channel and check if it is a consult channel
-        this.channelService.activeChannel$.subscribe(channel => {
-          if (channel?.data) {
-            // console.log(channel.data);
-            const channelType = channel.data['channel-type'];
-            if (channelType === 'consult') {
-              this.showDeclareButton = true;
-              // console.log(channelType);
-            } else {
-              this.showDeclareButton = false;
-            }
-          }
-        });
+        this.showDeclare();
 
-        // Get all channels with no messages
-        this.channelService.channels$.subscribe(channels => {
-          if (channels) {
-            const emptyChannels = channels.filter(channel => 
-              channel.state.last_message_at === null 
-              && channel.data 
-              && channel.data['channel-type'] === 'consult');
-            this.consultButtonText = emptyChannels.length.toString();
-            // console.log(`Number of channels with no messages: ${emptyChannels.length}`);
-          }
-        });
+        this.showConsults();
       });
     }
   }
@@ -94,6 +72,36 @@ export class ChatComponent implements OnInit {
 
   consults() {
     this.router.navigateByUrl('/consult');
+  } 
+
+   // Get active channel and check if it is a consult channel
+   showDeclare() {
+    this.channelService.activeChannel$.subscribe(channel => {
+      if (channel?.data) {
+        // console.log(channel.data);
+        const channelType = channel.data['channel-type'];
+        if (channelType === 'consult') {
+          this.showDeclareButton = true;
+          // console.log(channelType);
+        } else {
+          this.showDeclareButton = false;
+        }
+      }
+    });
+  }
+
+  // Get all channels with no messages
+  showConsults() {
+    this.channelService.channels$.subscribe(channels => {
+      if (channels) {
+        const emptyChannels = channels.filter(channel => 
+          channel.state.last_message_at === null 
+          && channel.data 
+          && channel.data['channel-type'] === 'consult');
+        this.consultButtonText = emptyChannels.length.toString();
+        // console.log(`Number of channels with no messages: ${emptyChannels.length}`);
+      }
+    });
   }
 
   declareConsult() {

@@ -9,7 +9,7 @@
   overflow: hidden;
 }
 
-#channel-div{
+#consult-div{
   border: #0050EF 1px solid;
   display: flex;
   flex-direction: column;
@@ -21,11 +21,7 @@
   margin: auto;
   overflow: hidden;
 
-  .channel-list{
-      border: #0050EF 1px solid;
-      border-radius: 22px;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
+  .consult-list{
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -35,13 +31,11 @@
       overflow-x: hidden;
       margin: auto;
       
-      #channel-item {
+      #consult-item {
           display: flex;
           align-items: center;
           margin: 5px auto;
-          border-radius: 22px;
           user-select: none;
-          
   
           #profile-pic {
             display: flex;
@@ -66,25 +60,10 @@
               font-weight: bold;
               margin-right: 10px;
             }
-        
-           
           }
       }
   }
 }
-
-#channel-add {
-  width: auto;
-  height: 50px;
-  width: fit-content;
-  padding: 20px;
-  color: white;
-  background-color: #0050EF;
-  border: none;
-  border-radius: 30px;
-  margin: 10px auto;
-}
-
 
 #back-button {
   position: absolute;
