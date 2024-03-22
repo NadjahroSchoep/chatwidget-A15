@@ -1,10 +1,11 @@
-import { Spectator, createComponentFactory, mockProvider } from "@ngneat/spectator/jest";
+import { Spectator, createComponentFactory, mockProvider  } from "@ngneat/spectator/jest";
 import { ChatComponent } from "./chat.component";
 import { AuthService } from "@auth0/auth0-angular";
 import { ApiService } from '@chatwidget/api';
 import { Observable, of } from "rxjs";
-import { ChannelService, ChatClientService, StreamI18nService, StreamChatModule, ChannelListComponent, DefaultStreamChatGenerics } from 'stream-chat-angular';
+import { ChannelService, ChatClientService, StreamI18nService, StreamChatModule, DefaultStreamChatGenerics } from 'stream-chat-angular';
 import { Channel } from "stream-chat";
+import { AuthComponent } from "@chatwidget/auth";
 
 describe(ChatComponent, () => {
   let spectator: Spectator<ChatComponent>;
@@ -54,9 +55,8 @@ describe(ChatComponent, () => {
         mockProvider(StreamI18nService, {
           setTranslation: jest.fn()
         }),
-        mockProvider(ChannelListComponent)
-      ]
-    
+      ],
+      mocks: [AuthComponent]
   });
 
   beforeEach(async () => {
